@@ -1,6 +1,6 @@
-import type { ToolFn } from '../../types'
-import { z } from 'zod'
-import { openai } from '../ai'
+import type { ToolFn } from '../../types';
+import { z } from 'zod';
+import { openai } from '../ai';
 
 export const generateImageToolDefinition = {
   name: 'generate_image',
@@ -11,10 +11,10 @@ export const generateImageToolDefinition = {
         `prompt for the image. Be sure to consider the user's original message when making the prompt. If you are unsure, then as the user to provide more details.`
       ),
   }),
-  description: 'generate an image',
-}
+  description: 'generate an image for show something relevant to the user',
+};
 
-type Args = z.infer<typeof generateImageToolDefinition.parameters>
+type Args = z.infer<typeof generateImageToolDefinition.parameters>;
 
 export const generateImage: ToolFn<Args, string> = async ({
   toolArgs,
@@ -25,7 +25,7 @@ export const generateImage: ToolFn<Args, string> = async ({
     prompt: toolArgs.prompt,
     n: 1,
     size: '1024x1024',
-  })
+  });
 
-  return response.data[0].url!
-}
+  return response.data[0].url!;
+};

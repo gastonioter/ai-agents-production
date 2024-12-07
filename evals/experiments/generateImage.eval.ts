@@ -18,7 +18,7 @@ runEval('generateImage', {
   task: (input) =>
     runLLM({
       messages: [{ role: 'user', content: input }],
-      tools: [dadJokeToolDefinition],
+      tools: [generateImageToolDefinition],
     }),
   data: [
     {
@@ -26,11 +26,11 @@ runEval('generateImage', {
       expected: createToolCallMessage(generateImageToolDefinition.name),
     },
     {
-      input: 'how would you draw a tree',
+      input: 'how would you draw a tree?',
       expected: createToolCallMessage(generateImageToolDefinition.name),
     },
     {
-      input: `how would a dog looks like in a beach`,
+      input: `how would a dog looks like in a beach?`,
       expected: createToolCallMessage(generateImageToolDefinition.name),
     },
   ],
