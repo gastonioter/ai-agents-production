@@ -9,3 +9,5 @@ export const tools = [
   movieSearchToolDefinition,
   dadJokeToolDefinition,
 ];
+
+export const protectedToolsName = [generateImageToolDefinition.name];
